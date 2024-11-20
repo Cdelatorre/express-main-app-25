@@ -1,4 +1,5 @@
 const Celebrity = require("../models/Celebrity.model");
+const mongoose = require("mongoose");
 
 module.exports.list = (req, res, next) => {
   Celebrity.find()
@@ -13,15 +14,17 @@ module.exports.create = (req, res, next) => {
 };
 
 module.exports.doCreate = (req, res, next) => {
-  console.info("ENTRO", req.body);
-
   Celebrity.create(req.body)
     .then(() => {
       res.redirect("/celebrities");
     })
-    .catch((e) => {
-      console.error(e);
-      res.render("celebrities/new");
+    .catch((err) => {
+      if (err instanceof mongoose.Error.ValidationError) {
+        res.render("celebrities/new", {
+          celebrity: req.body,
+          errors: err.errors,
+        });
+      }
     });
 };
 

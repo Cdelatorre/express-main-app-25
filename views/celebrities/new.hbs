@@ -1,20 +1,48 @@
 <form action="/celebrities" method="POST" class="container mt-5">
   <div class="mb-3">
-    <label for="name" class="form-label">Name</label>
-    <input type="text" class="form-control" id="name" name="name" />
+    <label for="name" class="form-label {{#if errors.name}}is-invalid{{/if}}">Name</label>
+    <input
+      value="{{celebrity.name}}"
+      type="text"
+      class="form-control"
+      id="name"
+      name="name"
+    />
+     {{#if errors.name}}
+        <div class="invalid-feedback">
+          {{errors.name}}
+        </div>
+      {{/if}}
   </div>
   <div class="mb-3">
     <label for="occupation" class="form-label">Occupation</label>
-    <input type="text" class="form-control" id="occupation" name="occupation" />
+    <input
+      value="{{celebrity.occupation}}"
+      type="text"
+      class="form-control {{#if errors.occupation}}is-invalid{{/if}}"
+      id="occupation"
+      name="occupation"
+    />
+     {{#if errors.occupation}}
+        <div class="invalid-feedback">
+          {{errors.occupation}}
+        </div>
+      {{/if}}
   </div>
   <div class="mb-3">
     <label for="catchPhrase" class="form-label">Catch Phrase</label>
     <input
+      value="{{celebrity.catchPhrase}}"
       type="text"
-      class="form-control"
+      class="form-control  {{#if errors.catchPhrase}}is-invalid{{/if}}"
       id="catchPhrase"
       name="catchPhrase"
     />
+     {{#if errors.catchPhrase}}
+        <div class="invalid-feedback">
+          {{errors.catchPhrase}}
+        </div>
+      {{/if}}
   </div>
   <button type="submit" class="btn btn-primary">Create Celebrity</button>
 </form>

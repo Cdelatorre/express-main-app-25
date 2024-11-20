@@ -5,7 +5,6 @@ require("dotenv/config");
 // ℹ️ Connects to the database
 require("./config/db.config");
 require("./config/hbs.config");
-
 // Handles http requests (express is node js framework)
 // https://www.npmjs.com/package/express
 const express = require("express");

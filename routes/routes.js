@@ -2,6 +2,7 @@ const router = require("express").Router();
 const miscController = require("../controllers/misc.controller");
 const celebritiesController = require("../controllers/celebrity.controller");
 const moviesController = require("../controllers/movie.controller");
+const authController = require("../controllers/auth.controller");
 
 /* GET home page */
 router.get("/", miscController.home);
@@ -21,5 +22,10 @@ router.get("/movies/:id", moviesController.detail);
 router.post("/movies/delete/:id", moviesController.delete);
 router.get("/movies/edit/:id", moviesController.edit);
 router.post("/movies/edit/:id", moviesController.doEdit);
+
+router.get("/register", authController.register);
+router.post("/register", authController.doRegister);
+router.get("/login", authController.login);
+router.post("/login", authController.doLogin);
 
 module.exports = router;
