@@ -1,0 +1,27 @@
+<h1>Movies list</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each movies as |movie|}}
+      <tr>
+        <td>{{movie.title}}</td>
+        <td>
+          <a href="/movies/{{movie.id}}" class="btn btn-primary">View Details</a>
+          <form
+            action="/movies/delete/{{movie.id}}"
+            method="POST"
+            style="display:inline;"
+          >
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

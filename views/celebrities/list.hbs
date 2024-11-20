@@ -1,0 +1,28 @@
+<h1>Celebrities list</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each celebrities as |celebrity|}}
+      <tr>
+        <td>{{celebrity.name}}</td>
+        <td>
+          <a href="/celebrities/{{celebrity.id}}" class="btn btn-primary">View
+            Details</a>
+          <form
+            action="/celebrities/delete/{{celebrity.id}}"
+            method="POST"
+            style="display:inline;"
+          >
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
