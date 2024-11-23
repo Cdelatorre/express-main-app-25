@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const { isAdmin } = require("../middlewares/auth.middleware");
 
 const EMAIL_PATTERN =
   /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -21,6 +22,10 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
     minLength: [8, "Password must be 8 characters or longer"],
+  },
+  isAdmin: {
+    type: Boolean,
+    default: false,
   },
 });
 

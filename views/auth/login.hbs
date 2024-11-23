@@ -8,6 +8,7 @@
         class="form-control"
         id="email"
         name="email"
+        value="{{email}}"
         required
       />
     </div>
@@ -20,6 +21,9 @@
         name="password"
         required
       />
+    </div>
+    <div class="mb-3">
+      <small class="text-danger">{{error}}</small>
     </div>
     <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
   </form>
