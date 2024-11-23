@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const miscController = require("../controllers/misc.controller");
-const celebritiesController = require("../controllers/celebrity.controller");
 const moviesController = require("../controllers/movie.controller");
 const authController = require("../controllers/auth.controller");
 const usersController = require("../controllers/users.controller");
@@ -9,14 +8,6 @@ const adminMiddlewares = require("../middlewares/admin.middleware");
 /* GET home page */
 router.get("/", miscController.home);
 router.get("/panel", adminMiddlewares.isAdmin, miscController.panel);
-
-router.get("/celebrities", celebritiesController.list);
-router.get("/celebrities/new", celebritiesController.create);
-router.post("/celebrities", celebritiesController.doCreate);
-router.get("/celebrities/:id", celebritiesController.detail);
-router.post("/celebrities/delete/:id", celebritiesController.delete);
-router.get("/celebrities/edit/:id", celebritiesController.edit);
-router.post("/celebrities/edit/:id", celebritiesController.doEdit);
 
 router.get("/movies", moviesController.list);
 router.get("/movies/new", moviesController.create);

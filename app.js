@@ -35,7 +35,10 @@ app.use(sessionConfig);
 app.use(loggedUser);
 
 const routes = require("./routes/routes");
+const celebritiesRoutes = require("./routes/routes.celebrities");
+
 app.use("/", routes);
+app.use("/celebrities", celebritiesRoutes);
 
 // Error handling
 app.use((req, res, next) => {
