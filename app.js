@@ -5,6 +5,9 @@ require("dotenv/config");
 // ℹ️ Connects to the database
 require("./config/db.config");
 require("./config/hbs.config");
+
+const cors = require("cors");
+
 const { sessionConfig, loggedUser } = require("./config/session.config");
 
 const express = require("express");
