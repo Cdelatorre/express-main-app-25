@@ -16,6 +16,13 @@ const path = require("path");
 const logger = require("morgan");
 
 const app = express();
+
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://express-main-app-25.fly.dev/"],
+  })
+);
+
 app.use(logger("dev"));
 
 // To have access to `body` property in the request
